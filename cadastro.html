@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Cadastro de funcionários — G&A VISION Gestão Empresarial." />
+    <title>Cadastro de funcionário | G&A VISION</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body data-page="form">
+    <header class="form-topbar">
+      <a class="brand brand-horizontal" href="./index.html" aria-label="G&A Vision - Início">
+        <span class="brand-mark" aria-hidden="true">G<span>&</span>A</span>
+        <span class="brand-copy">
+          <strong>VISION</strong>
+          <small>Gestão Empresarial</small>
+        </span>
+      </a>
+      <a class="back-link" href="./index.html">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.42-1.41L7.83 13H20v-2Z"/></svg>
+        Voltar ao painel
+      </a>
+    </header>
+
+    <main class="form-page">
+      <section class="form-intro">
+        <div>
+          <span class="eyebrow"><i></i> Gestão de pessoas</span>
+          <h1 id="formPageTitle">Novo funcionário</h1>
+          <p id="formPageDescription">Preencha os dados abaixo para adicionar um novo integrante à equipe.</p>
+        </div>
+        <div class="step-indicator" aria-label="Formulário dividido em duas seções">
+          <span class="step is-active">01</span>
+          <i></i>
+          <span class="step">02</span>
+        </div>
+      </section>
+
+      <form id="employeeForm" novalidate>
+        <section class="form-section">
+          <div class="form-section-heading">
+            <span class="section-number">01</span>
+            <div>
+              <h2>Informações pessoais</h2>
+              <p>Dados de identificação e contato do colaborador.</p>
+            </div>
+          </div>
+          <div class="form-grid">
+            <label class="field field-span-2">
+              <span>Nome completo <b>*</b></span>
+              <input type="text" name="name" placeholder="Ex.: Mariana Oliveira Santos" autocomplete="name" required />
+              <small class="field-error"></small>
+            </label>
+            <label class="field">
+              <span>CPF <b>*</b></span>
+              <input type="text" name="cpf" placeholder="000.000.000-00" inputmode="numeric" maxlength="14" required />
+              <small class="field-error"></small>
+            </label>
+            <label class="field">
+              <span>Data de nascimento</span>
+              <input type="date" name="birthDate" />
+              <small class="field-error"></small>
+            </label>
+            <label class="field">
+              <span>RG</span>
+              <input type="text" name="rg" placeholder="00.000.000-0" />
+              <small class="field-error"></small>
+            </label>
+            <label class="field">
+              <span>Telefone</span>
+              <input type="tel" name="phone" placeholder="(00) 00000-0000" inputmode="tel" maxlength="15" autocomplete="tel" />
+              <small class="field-error"></small>
+            </label>
+            <label class="field">
+              <span>E-mail pessoal</span>
+              <input type="email" name="personalEmail" placeholder="nome@email.com" autocomplete="email" />
+              <small class="field-error"></small>
+            </label>
+            <label class="field">
+              <span>E-mail corporativo</span>
+              <input type="email" name="corporateEmail" placeholder="nome@gaevision.com" />
+              <small class="field-error"></small>
+            </label>
+            <label class="field field-span-2">
+              <span>Endereço</span>
+              <input type="text" name="address" placeholder="Rua, número, bairro, cidade e estado" autocomplete="street-address" />
+              <small class="field-error"></small>
+            </label>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <div class="form-section-heading">
+            <span class="section-number">02</span>
+            <div>
+              <h2>Informações profissionais</h2>
+              <p>Dados de vínculo, função e estrutura organizacional.</p>
+            </div>
+          </div>
+          <div class="form-grid">
+            <label class="field">
+              <span>Matrícula</span>
+              <input type="text" name="registration" placeholder="Gerada automaticamente" />
+              <small class="field-hint">Se deixada vazia, será criada pelo sistema.</small>
+              <small class="field-error"></small>
+            </label>
+            <label class="field">
+              <span>Cargo <b>*</b></span>
+              <input type="text" name="role" placeholder="Ex.: Social Media" required />
+              <small class="field-error"></small>
+            </label>
+            <label class="field">
+              <span>Setor <b>*</b></span>
+              <select name="department" required>
+                <option value="">Selecione o setor</option>
+                <option>Administrativo</option>
+                <option>Atendimento</option>
+                <option>Comercial</option>
+                <option>Criação</option>
+                <option>Marketing</option>
+                <option>Mídia e Performance</option>
+                <option>Produção Audiovisual</option>
+                <option>Tecnologia</option>
+              </select>
+              <small class="field-error"></small>
+            </label>
+            <label class="field">
+              <span>Data de admissão</span>
+              <input type="date" name="admissionDate" />
+              <small class="field-error"></small>
+            </label>
+            <label class="field">
+              <span>Tipo de contrato</span>
+              <select name="contractType">
+                <option value="">Selecione</option>
+                <option>CLT</option>
+                <option>Pessoa Jurídica (PJ)</option>
+                <option>Estágio</option>
+                <option>Temporário</option>
+                <option>Freelancer</option>
+              </select>
+              <small class="field-error"></small>
+            </label>
+            <label class="field">
+              <span>Situação do funcionário</span>
+              <select name="status">
+                <option value="Ativo">Ativo</option>
+                <option value="Inativo">Inativo</option>
+              </select>
+              <small class="field-error"></small>
+            </label>
+            <label class="field">
+              <span>Supervisor</span>
+              <input type="text" name="supervisor" placeholder="Nome do responsável direto" />
+              <small class="field-error"></small>
+            </label>
+            <label class="field">
+              <span>Salário mensal</span>
+              <div class="input-prefix">
+                <span>R$</span>
+                <input type="text" name="salary" placeholder="0,00" inputmode="decimal" />
+              </div>
+              <small class="field-hint">Usado no cálculo da folha salarial.</small>
+              <small class="field-error"></small>
+            </label>
+          </div>
+        </section>
+
+        <div class="form-actions">
+          <p><b>*</b> Campos obrigatórios</p>
+          <div>
+            <a class="button button-ghost" href="./index.html">Cancelar</a>
+            <button class="button button-primary button-submit" type="submit">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M17 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7l-4-4Zm-5 16a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm3-10H5V5h10v4Z"/></svg>
+              <span id="submitLabel">Salvar funcionário</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </main>
+
+    <footer class="form-footer">
+      <span>© <span id="currentYear"></span> G&A VISION | Gestão Empresarial</span>
+      <span>Transformamos ideias em impacto.</span>
+    </footer>
+    <aside class="ana-guide" id="anaGuide" aria-label="Caio, assistente virtual">
+      <div class="ana-panel" id="anaPanel" hidden>
+        <div class="ana-panel-header">
+          <div>
+            <span class="ana-online"></span>
+            <p><strong>Caio</strong><small>Guia da G&A VISION</small></p>
+          </div>
+          <button class="ana-close" id="anaClose" type="button" aria-label="Fechar orientação">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m18.3 5.71-1.41-1.42L12 9.17 7.11 4.29 5.7 5.71 10.59 10.59 5.7 15.48l1.41 1.41L12 12l4.89 4.89 1.41-1.41-4.89-4.89 4.89-4.88Z"/></svg>
+          </button>
+        </div>
+        <div class="ana-panel-body">
+          <span class="ana-kicker">Dica do Caio</span>
+          <p id="anaMessage">Vamos cadastrar um novo talento? Comece pelos campos marcados com asterisco.</p>
+          <div class="ana-progress-label"><span>Preenchimento obrigatório</span><strong id="anaProgressValue">0%</strong></div>
+          <div class="ana-progress"><span id="anaProgressBar"></span></div>
+          <a class="ana-back-link" href="./index.html">Voltar ao painel</a>
+        </div>
+      </div>
+      <button class="ana-character" id="anaToggle" type="button" aria-label="Conversar com Caio" aria-expanded="false">
+        <span class="ana-speech" id="anaSpeech">Posso ajudar no cadastro!</span>
+        <span class="ana-portrait">
+          <img src="caio.png" alt="Caio, guia virtual da G&A VISION" />
+        </span>
+      </button>
+    </aside>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
