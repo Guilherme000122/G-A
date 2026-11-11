@@ -15,14 +15,14 @@
   </head>
   <body data-page="form">
     <header class="form-topbar">
-      <a class="brand brand-horizontal" href="./index.html" aria-label="G&A Vision - Início">
+      <a class="brand brand-horizontal" href="./dashboard.html" aria-label="G&A Vision - Início">
         <span class="brand-mark" aria-hidden="true">G<span>&</span>A</span>
         <span class="brand-copy">
           <strong>VISION</strong>
           <small>Gestão Empresarial</small>
         </span>
       </a>
-      <a class="back-link" href="./index.html">
+      <a class="back-link" href="./dashboard.html">
         <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.42-1.41L7.83 13H20v-2Z"/></svg>
         Voltar ao painel
       </a>
@@ -112,7 +112,15 @@
             </label>
             <label class="field">
               <span>Cargo <b>*</b></span>
-              <input type="text" name="role" placeholder="Ex.: Social Media" required />
+              <select name="role" required>
+                <option value="">Selecione o cargo</option>
+                <option>Atendimento</option>
+                <option>Designer gráfico</option>
+                <option>Editor de vídeo</option>
+                <option>Gestor de tráfego</option>
+                <option>Produtor audiovisual</option>
+                <option>Social media</option>
+              </select>
               <small class="field-error"></small>
             </label>
             <label class="field">
@@ -133,6 +141,16 @@
             <label class="field">
               <span>Data de admissão</span>
               <input type="date" name="admissionDate" />
+              <small class="field-error"></small>
+            </label>
+            <label class="field">
+              <span>Turno <b>*</b></span>
+              <select name="shift" required>
+                <option value="">Selecione o turno</option>
+                <option>Manhã</option>
+                <option>Tarde</option>
+                <option>Noite</option>
+              </select>
               <small class="field-error"></small>
             </label>
             <label class="field">
@@ -164,9 +182,9 @@
               <span>Salário mensal</span>
               <div class="input-prefix">
                 <span>R$</span>
-                <input type="text" name="salary" placeholder="0,00" inputmode="decimal" />
+                <input type="text" name="salary" placeholder="0,00" inputmode="decimal" autocomplete="off" />
               </div>
-              <small class="field-hint">Usado no cálculo da folha salarial.</small>
+              <small class="field-hint">Informe um valor não negativo (ex.: 2.500,00).</small>
               <small class="field-error"></small>
             </label>
           </div>
@@ -175,7 +193,7 @@
         <div class="form-actions">
           <p><b>*</b> Campos obrigatórios</p>
           <div>
-            <a class="button button-ghost" href="./index.html">Cancelar</a>
+            <a class="button button-ghost" href="./dashboard.html">Cancelar</a>
             <button class="button button-primary button-submit" type="submit">
               <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M17 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7l-4-4Zm-5 16a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm3-10H5V5h10v4Z"/></svg>
               <span id="submitLabel">Salvar funcionário</span>
@@ -205,7 +223,7 @@
           <p id="anaMessage">Vamos cadastrar um novo talento? Comece pelos campos marcados com asterisco.</p>
           <div class="ana-progress-label"><span>Preenchimento obrigatório</span><strong id="anaProgressValue">0%</strong></div>
           <div class="ana-progress"><span id="anaProgressBar"></span></div>
-          <a class="ana-back-link" href="./index.html">Voltar ao painel</a>
+          <a class="ana-back-link" href="./dashboard.html">Voltar ao painel</a>
         </div>
       </div>
       <button class="ana-character" id="anaToggle" type="button" aria-label="Conversar com Caio" aria-expanded="false">

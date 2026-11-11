@@ -393,15 +393,17 @@ svg {
 .hero-panel {
   position: relative;
   min-height: 178px;
-  padding: 34px 40px;
+  padding: 24px 40px;
   border-radius: 12px;
+  border: 1px solid #dededb;
   overflow: hidden;
   background:
-    linear-gradient(115deg, rgba(255, 107, 26, .1), transparent 42%),
-    var(--black-soft);
-  color: var(--white);
+    linear-gradient(115deg, #f8f8f7, transparent 70%),
+    #eaeae8;
+  color: var(--black);
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .hero-panel::after {
@@ -410,7 +412,7 @@ svg {
   width: 250px;
   height: 250px;
   right: 9%;
-  border: 1px solid rgba(255,255,255,.06);
+  border: 1px solid rgba(10,10,10,.06);
   transform: rotate(45deg);
 }
 
@@ -441,12 +443,35 @@ svg {
   letter-spacing: -.04em;
 }
 
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 650px;
+}
+
 .hero-panel p {
-  max-width: 570px;
+  max-width: 610px;
   margin: 0;
-  color: #aaa9a5;
+  color: #66645f;
   font-size: 12px;
   line-height: 1.7;
+}
+
+.hero-caio {
+  position: relative;
+  z-index: 1;
+  align-self: stretch;
+  flex: 0 0 170px;
+  height: 190px;
+  margin: -12px 4% -24px 20px;
+}
+
+.hero-caio img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
 }
 
 .hero-monogram {
@@ -1048,6 +1073,11 @@ footer {
   pointer-events: none;
 }
 
+body[data-page="form"] .ana-guide {
+  right: auto;
+  left: 26px;
+}
+
 .ana-character {
   position: absolute;
   right: 0;
@@ -1129,6 +1159,19 @@ footer {
   border-color: transparent transparent transparent var(--white);
 }
 
+body[data-page="form"] .ana-speech {
+  right: auto;
+  left: 95px;
+  border-radius: 10px 10px 10px 2px;
+}
+
+body[data-page="form"] .ana-speech::after {
+  right: auto;
+  left: -7px;
+  border-width: 7px 8px 0 0;
+  border-color: transparent var(--white) transparent transparent;
+}
+
 .ana-guide.is-open .ana-speech {
   display: none;
 }
@@ -1147,6 +1190,12 @@ footer {
   pointer-events: auto;
   transform-origin: right bottom;
   animation: ana-panel-in 230ms ease-out both;
+}
+
+body[data-page="form"] .ana-panel {
+  right: auto;
+  left: 15px;
+  transform-origin: left bottom;
 }
 
 .ana-panel[hidden] {
@@ -1676,6 +1725,16 @@ footer {
     padding: 30px 25px;
   }
 
+  .hero-caio {
+    flex-basis: 130px;
+    height: 160px;
+    margin-right: 0;
+  }
+
+  .hero-panel p {
+    max-width: 420px;
+  }
+
   .employees-heading {
     align-items: stretch;
     flex-direction: column;
@@ -1793,6 +1852,30 @@ footer {
     transform-origin: right bottom;
   }
 
+  body[data-page="form"] .ana-guide {
+    right: auto;
+    left: 10px;
+    transform: scale(.55);
+    transform-origin: left bottom;
+  }
+
+  .hero-panel {
+    padding: 25px 20px 125px;
+  }
+
+  .hero-caio {
+    position: absolute;
+    right: 8px;
+    bottom: 0;
+    width: 110px;
+    height: 125px;
+    margin: 0;
+  }
+
+  .hero-copy {
+    align-self: flex-start;
+  }
+
   .ana-panel {
     position: fixed;
     right: 14px;
@@ -1803,6 +1886,17 @@ footer {
   .ana-speech {
     right: 91px;
     width: 142px;
+  }
+
+  body[data-page="form"] .ana-speech {
+    right: auto;
+    left: 91px;
+  }
+
+  body[data-page="form"] .ana-panel {
+    right: 14px;
+    left: 14px;
+    transform-origin: left bottom;
   }
 }
 

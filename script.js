@@ -110,14 +110,15 @@ function initAnaGuide() {
 
   if (document.body.dataset.page === 'form') {
     const form = $('#employeeForm');
-    const requiredNames = ['name', 'cpf', 'role', 'department'];
+    const requiredNames = ['name', 'cpf', 'role', 'department', 'shift'];
     const tips = {
       name: 'Informe o nome completo do colaborador como aparece nos documentos.',
       cpf: 'Digite apenas os números. Eu aplico a máscara do CPF automaticamente.',
       birthDate: 'A data de nascimento é opcional e ajuda a manter o cadastro completo.',
       registration: 'Você pode criar uma matrícula ou deixar que o sistema gere uma automaticamente.',
-      role: 'Descreva a função principal que o colaborador exercerá na agência.',
+      role: 'Escolha a função principal que o colaborador exercerá na agência.',
       department: 'Escolha o setor em que o colaborador atuará.',
+      shift: 'Selecione apenas um turno para o colaborador.',
       salary: 'O salário informado entra automaticamente no cálculo da folha mensal.',
       status: 'Funcionários ativos aparecem nos indicadores do dashboard.',
     };
@@ -377,8 +378,19 @@ const formatPhone = (value) => {
 };
 
 const parseSalary = (value = '') => {
-  const normalized = String(value).replace(/\./g, '').replace(',', '.').replace(/[^\d.]/g, '');
-  return Number(normalized) || 0;
+  const normalized = String(value).trim();
+  if (!normalized) return 0;
+  if (normalized.includes(',')) {
+    if (!/^(?:\d+|\d{1,3}(?:\.\d{3})+)(?:,\d{1,2})?$/.test(normalized)) {
+      return Number.NaN;
+    }
+    return Number(normalized.replace(/\./g, '').replace(',', '.'));
+  }
+  if (/^\d{1,3}(?:\.\d{3})+$/.test(normalized)) {
+    return Number(normalized.replace(/\./g, ''));
+  }
+  if (!/^\d+(?:\.\d{1,2})?$/.test(normalized)) return Number.NaN;
+  return Number(normalized);
 };
 
 function initForm() {
@@ -402,6 +414,14 @@ function initForm() {
     Object.entries(editingEmployee).forEach(([key, value]) => {
       const input = form.elements.namedItem(key);
       if (!input) return;
+      if (
+        key === 'role' &&
+        input instanceof HTMLSelectElement &&
+        value &&
+        ![...input.options].some((option) => option.value === value)
+      ) {
+        input.add(new Option(value, value));
+      }
       input.value =
         key === 'salary'
           ? Number(value || 0).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
@@ -462,6 +482,7 @@ function initForm() {
       ['cpf', 'Informe o CPF.'],
       ['role', 'Informe o cargo.'],
       ['department', 'Selecione o setor.'],
+      ['shift', 'Selecione o turno.'],
     ].forEach(([name, message]) => {
       if (!String(formData[name] || '').trim()) firstInvalid ||= setFieldError(name, message);
     });
@@ -493,6 +514,11 @@ function initForm() {
       firstInvalid ||= setFieldError('corporateEmail', 'Informe um e-mail válido.');
     }
 
+    const salary = parseSalary(formData.salary);
+    if (!Number.isFinite(salary) || salary < 0) {
+      firstInvalid ||= setFieldError('salary', 'Informe um salário válido igual ou maior que zero.');
+    }
+
     if (firstInvalid) {
       firstInvalid.focus();
       showToast('Revise os campos destacados antes de continuar.', 'error');
@@ -513,10 +539,11 @@ function initForm() {
       role: formData.role.trim(),
       department: formData.department,
       admissionDate: formData.admissionDate,
+      shift: formData.shift,
       contractType: formData.contractType,
       status: formData.status,
       supervisor: formData.supervisor.trim(),
-      salary: parseSalary(formData.salary),
+      salary,
       updatedAt: new Date().toISOString(),
       createdAt: editingEmployee?.createdAt || new Date().toISOString(),
     };
@@ -526,7 +553,7 @@ function initForm() {
       : [...employees, employee];
 
     writeEmployees(nextEmployees);
-    location.href = `./index.html?saved=${editingEmployee ? 'updated' : 'created'}#funcionarios`;
+    location.href = `./dashboard.html?saved=${editingEmployee ? 'updated' : 'created'}#funcionarios`;
   });
 }
 
