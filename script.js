@@ -477,6 +477,11 @@ function initForm() {
 
     const formData = Object.fromEntries(new FormData(form).entries());
     let firstInvalid = null;
+    const markInvalid = (name, message) => {
+      const input = setFieldError(name, message);
+      if (!firstInvalid) firstInvalid = input;
+    };
+
     [
       ['name', 'Informe o nome completo.'],
       ['cpf', 'Informe o CPF.'],
@@ -484,17 +489,17 @@ function initForm() {
       ['department', 'Selecione o setor.'],
       ['shift', 'Selecione o turno.'],
     ].forEach(([name, message]) => {
-      if (!String(formData[name] || '').trim()) firstInvalid ||= setFieldError(name, message);
+      if (!String(formData[name] || '').trim()) markInvalid(name, message);
     });
 
     if (formData.cpf && !validateCpf(formData.cpf)) {
-      firstInvalid ||= setFieldError('cpf', 'Informe um CPF válido.');
+      markInvalid('cpf', 'Informe um CPF válido.');
     }
 
     const duplicateCpf = employees.find(
       (employee) => employee.id !== editId && digitsOnly(employee.cpf) === digitsOnly(formData.cpf),
     );
-    if (duplicateCpf) firstInvalid ||= setFieldError('cpf', 'Este CPF já está cadastrado.');
+    if (duplicateCpf) markInvalid('cpf', 'Este CPF já está cadastrado.');
 
     const registration = String(formData.registration || '').trim();
     const duplicateRegistration =
@@ -504,19 +509,19 @@ function initForm() {
           employee.id !== editId && normalize(employee.registration) === normalize(registration),
       );
     if (duplicateRegistration) {
-      firstInvalid ||= setFieldError('registration', 'Esta matrícula já está em uso.');
+      markInvalid('registration', 'Esta matrícula já está em uso.');
     }
 
     if (formData.personalEmail && !form.elements.namedItem('personalEmail').validity.valid) {
-      firstInvalid ||= setFieldError('personalEmail', 'Informe um e-mail válido.');
+      markInvalid('personalEmail', 'Informe um e-mail válido.');
     }
     if (formData.corporateEmail && !form.elements.namedItem('corporateEmail').validity.valid) {
-      firstInvalid ||= setFieldError('corporateEmail', 'Informe um e-mail válido.');
+      markInvalid('corporateEmail', 'Informe um e-mail válido.');
     }
 
     const salary = parseSalary(formData.salary);
     if (!Number.isFinite(salary) || salary < 0) {
-      firstInvalid ||= setFieldError('salary', 'Informe um salário válido igual ou maior que zero.');
+      markInvalid('salary', 'Informe um salário válido igual ou maior que zero.');
     }
 
     if (firstInvalid) {

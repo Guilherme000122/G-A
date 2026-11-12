@@ -178,6 +178,7 @@ async function executarTestes() {
     botaoExecutar.disabled = true;
     botaoExecutar.textContent = "Executando...";
     estadoExecucao.textContent = "Executando testes automatizados...";
+    documentoFormularioTestes = null;
 
     corpoTabela.querySelectorAll("tr").forEach(linha => {
         const status = linha.querySelector(".status");
@@ -202,11 +203,14 @@ async function executarTestes() {
     const identificador = `QA-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
     const nomeTeste = `Teste automatizado ${identificador}`;
     let funcionarioTesteId = null;
+    let funcionariosArmazenadosAntes = false;
     let documentoDashboardPrincipal = null;
     let cpfTeste;
 
     try {
         await executarCaso("CT-01", async () => {
+            funcionariosArmazenadosAntes =
+                localStorage.getItem(chaveFuncionarios) !== null;
             const funcionarios = lerFuncionarios();
             cpfTeste = criarCpfUnico(funcionarios);
             const documento = await carregarPagina("cadastro.html");
@@ -309,7 +313,7 @@ async function executarTestes() {
             const documento = await carregarFormularioTeste();
             const turno = documento.querySelector('[name="shift"]');
 
-            if (!(turno instanceof HTMLSelectElement) || turno.multiple) {
+            if (!turno || turno.tagName !== "SELECT" || turno.multiple) {
                 throw new Error("O campo de turno não está limitado a uma única opção.");
             }
 
@@ -348,13 +352,18 @@ async function executarTestes() {
     } finally {
         if (funcionarioTesteId) {
             const funcionarios = lerFuncionarios();
-            localStorage.setItem(
-                chaveFuncionarios,
-                JSON.stringify(funcionarios.filter(funcionario => funcionario.id !== funcionarioTesteId))
+            const funcionariosRestantes = funcionarios.filter(
+                funcionario => funcionario.id !== funcionarioTesteId
             );
+            if (funcionariosRestantes.length || funcionariosArmazenadosAntes) {
+                localStorage.setItem(chaveFuncionarios, JSON.stringify(funcionariosRestantes));
+            } else {
+                localStorage.removeItem(chaveFuncionarios);
+            }
         }
 
         frameTeste.removeAttribute("src");
+        documentoFormularioTestes = null;
         const aprovados = [...corpoTabela.querySelectorAll(".status")]
             .filter(status => status.value === "PASSOU").length;
         const reprovados = [...corpoTabela.querySelectorAll(".status")]
