@@ -553,7 +553,7 @@ function initForm() {
       : [...employees, employee];
 
     writeEmployees(nextEmployees);
-    location.href = `./dashboard.html?saved=${editingEmployee ? 'updated' : 'created'}#funcionarios`;
+    location.href = `./index.html?saved=${editingEmployee ? 'updated' : 'created'}#funcionarios`;
   });
 }
 

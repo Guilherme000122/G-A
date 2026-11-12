@@ -65,7 +65,13 @@
             <div class="titulo-tabela">
                 <div>
                     <h2>Casos de teste</h2>
-                    <p>Registre os resultados de cada teste executado.</p>
+                    <p>Os casos são executados automaticamente nesta página.</p>
+                </div>
+                <div class="acoes-testes">
+                    <p id="estadoExecucao" aria-live="polite">Preparando testes...</p>
+                    <button class="botao-executar" id="executarTestes" type="button">
+                        Executar testes novamente
+                    </button>
                 </div>
             </div>
 
@@ -110,9 +116,9 @@
                             <td>Cadastro de funcionário com todos os dados válidos.</td>
                             <td>Nome, CPF, endereço, e-mail, senha, cargo e demais campos válidos.</td>
                             <td>O funcionário deve ser cadastrado corretamente.</td>
-                            <td><textarea class="resultado" placeholder="Descreva o resultado obtido..."></textarea></td>
+                            <td><textarea class="resultado" placeholder="Aguardando execução..." readonly></textarea></td>
                             <td>
-                                <select class="status pendente">
+                                <select class="status pendente" disabled aria-label="Status do teste">
                                     <option value="PENDENTE">Pendente</option>
                                     <option value="PASSOU">PASSOU</option>
                                     <option value="FALHOU">FALHOU</option>
@@ -127,9 +133,9 @@
                             <td>Tentativa de cadastro sem preencher um campo obrigatório.</td>
                             <td>Deixar o campo Nome ou E-mail vazio e tentar cadastrar.</td>
                             <td>O sistema deve impedir o cadastro e informar o campo obrigatório.</td>
-                            <td><textarea class="resultado" placeholder="Descreva o resultado obtido..."></textarea></td>
+                            <td><textarea class="resultado" placeholder="Aguardando execução..." readonly></textarea></td>
                             <td>
-                                <select class="status pendente">
+                                <select class="status pendente" disabled aria-label="Status do teste">
                                     <option value="PENDENTE">Pendente</option>
                                     <option value="PASSOU">PASSOU</option>
                                     <option value="FALHOU">FALHOU</option>
@@ -144,9 +150,9 @@
                             <td>Validação do formato do endereço de e-mail.</td>
                             <td>Informar um e-mail inválido, como usuario@ ou usuario.com.</td>
                             <td>O sistema deve rejeitar o e-mail inválido e solicitar a correção.</td>
-                            <td><textarea class="resultado" placeholder="Descreva o resultado obtido..."></textarea></td>
+                            <td><textarea class="resultado" placeholder="Aguardando execução..." readonly></textarea></td>
                             <td>
-                                <select class="status pendente">
+                                <select class="status pendente" disabled aria-label="Status do teste">
                                     <option value="PENDENTE">Pendente</option>
                                     <option value="PASSOU">PASSOU</option>
                                     <option value="FALHOU">FALHOU</option>
@@ -161,9 +167,9 @@
                             <td>Verificação da seleção de turnos no cadastro.</td>
                             <td>Tentar selecionar mais de um turno, quando a regra permitir apenas um.</td>
                             <td>O sistema deve impedir uma seleção incompatível com a regra definida.</td>
-                            <td><textarea class="resultado" placeholder="Descreva o resultado obtido..."></textarea></td>
+                            <td><textarea class="resultado" placeholder="Aguardando execução..." readonly></textarea></td>
                             <td>
-                                <select class="status pendente">
+                                <select class="status pendente" disabled aria-label="Status do teste">
                                     <option value="PENDENTE">Pendente</option>
                                     <option value="PASSOU">PASSOU</option>
                                     <option value="FALHOU">FALHOU</option>
@@ -178,9 +184,9 @@
                             <td>Validação do valor informado no campo salário.</td>
                             <td>Informar um valor negativo, como -500.</td>
                             <td>O sistema deve impedir o cadastro com salário negativo.</td>
-                            <td><textarea class="resultado" placeholder="Descreva o resultado obtido..."></textarea></td>
+                            <td><textarea class="resultado" placeholder="Aguardando execução..." readonly></textarea></td>
                             <td>
-                                <select class="status pendente">
+                                <select class="status pendente" disabled aria-label="Status do teste">
                                     <option value="PENDENTE">Pendente</option>
                                     <option value="PASSOU">PASSOU</option>
                                     <option value="FALHOU">FALHOU</option>
@@ -195,9 +201,9 @@
                             <td>Verificação das opções disponíveis no campo Cargo.</td>
                             <td>Abrir a lista de cargos e verificar se existem pelo menos quatro opções.</td>
                             <td>O campo deve apresentar pelo menos quatro opções de cargos.</td>
-                            <td><textarea class="resultado" placeholder="Descreva o resultado obtido..."></textarea></td>
+                            <td><textarea class="resultado" placeholder="Aguardando execução..." readonly></textarea></td>
                             <td>
-                                <select class="status pendente">
+                                <select class="status pendente" disabled aria-label="Status do teste">
                                     <option value="PENDENTE">Pendente</option>
                                     <option value="PASSOU">PASSOU</option>
                                     <option value="FALHOU">FALHOU</option>
@@ -212,9 +218,9 @@
                             <td>Verificação da apresentação do salário em reais.</td>
                             <td>Informar um salário válido, como 2500.</td>
                             <td>O valor deve ser apresentado no formato de moeda brasileira (R$).</td>
-                            <td><textarea class="resultado" placeholder="Descreva o resultado obtido..."></textarea></td>
+                            <td><textarea class="resultado" placeholder="Aguardando execução..." readonly></textarea></td>
                             <td>
-                                <select class="status pendente">
+                                <select class="status pendente" disabled aria-label="Status do teste">
                                     <option value="PENDENTE">Pendente</option>
                                     <option value="PASSOU">PASSOU</option>
                                     <option value="FALHOU">FALHOU</option>
@@ -229,9 +235,9 @@
                             <td>Verificação da exibição da logo da G&A VISION.</td>
                             <td>Acessar a página do sistema e observar o cabeçalho.</td>
                             <td>A logo deve ser exibida corretamente, sem distorções ou falhas.</td>
-                            <td><textarea class="resultado" placeholder="Descreva o resultado obtido..."></textarea></td>
+                            <td><textarea class="resultado" placeholder="Aguardando execução..." readonly></textarea></td>
                             <td>
-                                <select class="status pendente">
+                                <select class="status pendente" disabled aria-label="Status do teste">
                                     <option value="PENDENTE">Pendente</option>
                                     <option value="PASSOU">PASSOU</option>
                                     <option value="FALHOU">FALHOU</option>
@@ -247,9 +253,9 @@
         <section class="observacao">
             <h3>Orientações</h3>
             <p>
-                Execute cada caso de teste no sistema de cadastro. Depois,
-                registre o resultado obtido e selecione PASSOU ou FALHOU.
-                Os indicadores serão atualizados automaticamente.
+                Os testes são executados automaticamente ao abrir a página. Use o botão
+                acima para repetir a execução; os resultados e indicadores são atualizados
+                com base no comportamento real do sistema.
             </p>
         </section>
 

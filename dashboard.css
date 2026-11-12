@@ -148,7 +148,38 @@ body {
 }
 
 .titulo-tabela {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
     margin-bottom: 20px;
+}
+
+.acoes-testes {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.acoes-testes p {
+    color: #aaaaaa;
+    font-size: 13px;
+}
+
+.botao-executar {
+    background: #292929;
+    color: #ff9638;
+    border: 1px solid #ff7900;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.botao-executar:hover {
+    background: #38312b;
 }
 
 .filtros {
@@ -249,6 +280,11 @@ tbody tr:hover {
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
+}
+
+.status:disabled {
+    opacity: 1;
+    cursor: default;
 }
 
 .status.pendente {
