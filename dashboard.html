@@ -1,277 +1,266 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="G&A VISION | Gestão Empresarial — painel de gestão de colaboradores."
-    />
-    
-    <title>G&A VISION | Gestão Empresarial</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body data-page="dashboard">
-    <div class="app-shell">
-      <aside class="sidebar" id="sidebar" aria-label="Menu principal">
-        <a class="brand" href="./dashboard.html" aria-label="G&A Vision - Início">
-          <span class="brand-mark" aria-hidden="true">G<span>&</span>A</span>
-          <span class="brand-copy">
-            <strong>VISION</strong>
-            <small>Gestão Empresarial</small>
-          </span>
-        </a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard de testes do sistema G&A VISION">
+    <title>Dashboard de Testes | G&A VISION</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="dashboard.js" defer></script>
+</head>
+<body>
 
-        <nav class="side-nav">
-          <p class="nav-label">Menu principal</p>
-          <a class="nav-item is-active" href="#dashboard" data-nav>
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 13h6V4H4v9Zm0 7h6v-4H4v4Zm10 0h6v-9h-6v9Zm0-16v4h6V4h-6Z"/></svg>
-            <span>Dashboard</span>
-          </a>
-          <a class="nav-item" href="./cadastro.html">
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M15 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5ZM6 9V6H4v3H1v2h3v3h2v-3h3V9H6Zm9 5c-3.34 0-10 1.68-10 5v1h20v-1c0-3.32-6.66-5-10-5Z"/></svg>
-            <span>Cadastrar funcionário</span>
-          </a>
-          <a class="nav-item" href="#funcionarios" data-nav>
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3Zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3Zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13Zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5Z"/></svg>
-            <span>Funcionários</span>
-          </a>
-          <a class="nav-item" href="#indicadores" data-nav>
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 13h4v8H3v-8Zm7-10h4v18h-4V3Zm7 6h4v12h-4V9Z"/></svg>
-            <span>Indicadores</span>
-          </a>
-          <a class="nav-item" href="#dados" data-nav>
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.34 4 6s3.58 3 8 3 8-1.34 8-3-3.58-3-8-3ZM4 9v4c0 1.66 3.58 3 8 3s8-1.34 8-3V9c-1.72 1.35-4.87 2-8 2s-6.28-.65-8-2Zm0 7v3c0 1.66 3.58 3 8 3s8-1.34 8-3v-3c-1.72 1.35-4.87 2-8 2s-6.28-.65-8-2Z"/></svg>
-            <span>Gerenciar dados</span>
-          </a>
-        </nav>
-
-        <div class="sidebar-note">
-          <span class="note-kicker">G&A VISION</span>
-          <p>Transformamos ideias em impacto.</p>
-          <span class="note-line"></span>
+    <header class="topo">
+        <div class="logo">
+            <span>G&A</span>
+            <small>VISION</small>
         </div>
-      </aside>
 
-      <div class="page-frame">
-        <header class="topbar">
-          <button class="icon-button menu-button" id="menuButton" type="button" aria-label="Abrir menu" aria-expanded="false">
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6Zm0 5h18v2H3v-2Zm0 5h18v2H3v-2Z"/></svg>
-          </button>
-          <div class="topbar-title">
-            <span>Gestão Empresarial</span>
-            <strong>Painel administrativo</strong>
-          </div>
-          <div class="topbar-actions">
-            <span class="date-chip" id="currentDate"></span>
-            <a class="button button-primary button-compact" href="./cadastro.html">
-              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Z"/></svg>
-              Novo funcionário
-            </a>
-          </div>
-        </header>
+        <div class="identificacao">
+            <p>MARKETING • COMUNICAÇÃO • CRIATIVIDADE</p>
+            <h1>Dashboard de Testes</h1>
+            <span>Cadastro de Funcionários</span>
+        </div>
+    </header>
 
-        <main>
-          <section class="hero-panel section-anchor" id="dashboard">
-            <div class="hero-copy">
-              <span class="eyebrow"><i></i> Seu guia virtual</span>
-              <h1>Oi, eu sou o Caio!</h1>
-              <p>Estou aqui para ajudar você a cadastrar funcionários, consultar sua equipe, acompanhar indicadores e gerenciar os dados da G&A VISION. Vamos começar?</p>
+    <main class="container">
+
+        <section class="introducao">
+            <div>
+                <h2>Controle de qualidade</h2>
+                <p>
+                    Acompanhe os testes realizados no sistema de cadastro
+                    de funcionários da G&A VISION.
+                </p>
             </div>
-            <div class="hero-caio" aria-hidden="true">
-              <img src="./caio.png" alt="" />
-            </div>
-          </section>
 
-          <section class="metrics-grid" aria-label="Resumo da equipe">
-            <article class="metric-card">
-              <div class="metric-icon">
-                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3ZM8 11c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3Zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5C15 14.17 10.33 13 8 13Zm8 0c-.29 0-.62.02-.97.05 1.19.86 1.97 2.02 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5Z"/></svg>
-              </div>
-              <div class="metric-copy">
-                <span>Total de funcionários</span>
-                <strong id="totalEmployees">0</strong>
-                <small>colaboradores cadastrados</small>
-              </div>
-            </article>
-            <article class="metric-card">
-              <div class="metric-icon">
-                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 16.17-3.88-3.88L3.7 13.7 9 19l12-12-1.41-1.41L9 16.17Z"/></svg>
-              </div>
-              <div class="metric-copy">
-                <span>Funcionários ativos</span>
-                <strong id="activeEmployees">0</strong>
-                <small id="activeSummary">0% do quadro atual</small>
-              </div>
-            </article>
-            <article class="metric-card metric-card-accent">
-              <div class="metric-icon">
-                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1H6.32c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4Z"/></svg>
-              </div>
-              <div class="metric-copy">
-                <span>Folha salarial</span>
-                <strong id="payroll">R$ 2500,00</strong>
-                <small>valor mensal estimado</small>
-              </div>
-            </article>
-          </section>
+            <button class="botao-imprimir" onclick="window.print()">
+                Imprimir relatório
+            </button>
+        </section>
 
-          <div class="dashboard-grid">
-            <section class="panel indicator-panel section-anchor" id="indicadores">
-              <div class="panel-heading">
+        <section class="resumo">
+            <article class="card-resumo">
+                <span>Total de testes</span>
+                <strong id="totalTestes">8</strong>
+            </article>
+
+            <article class="card-resumo passou">
+                <span>Testes aprovados</span>
+                <strong id="totalPassou">0</strong>
+            </article>
+
+            <article class="card-resumo falhou">
+                <span>Testes reprovados</span>
+                <strong id="totalFalhou">0</strong>
+            </article>
+
+            <article class="card-resumo percentual">
+                <span>Taxa de aprovação</span>
+                <strong id="percentual">0%</strong>
+            </article>
+        </section>
+
+        <section class="area-testes">
+            <div class="titulo-tabela">
                 <div>
-                  <span class="section-kicker">Performance</span>
-                  <h2>Indicadores da equipe</h2>
+                    <h2>Casos de teste</h2>
+                    <p>Registre os resultados de cada teste executado.</p>
                 </div>
-                <span class="status-chip">Em tempo real</span>
-              </div>
-              <div class="indicator-list">
-                <div class="indicator">
-                  <div class="indicator-meta">
-                    <span><i class="dot dot-active"></i> Funcionários ativos</span>
-                    <strong id="activePercent">0%</strong>
-                  </div>
-                  <div class="progress-track"><span class="progress-active" id="activeBar"></span></div>
-                </div>
-                <div class="indicator">
-                  <div class="indicator-meta">
-                    <span><i class="dot dot-inactive"></i> Funcionários inativos</span>
-                    <strong id="inactivePercent">0%</strong>
-                  </div>
-                  <div class="progress-track"><span class="progress-inactive" id="inactiveBar"></span></div>
-                </div>
-              </div>
-              <p class="indicator-footnote" id="indicatorFootnote">Cadastre sua equipe para visualizar a distribuição.</p>
-            </section>
-
-            <section class="panel data-panel section-anchor" id="dados">
-              <div class="panel-heading">
-                <div>
-                  <span class="section-kicker">Segurança</span>
-                  <h2>Gerenciar dados</h2>
-                </div>
-                <svg class="panel-watermark" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5.05 3.41 9.74 8 11 4.59-1.26 8-5.95 8-11V5l-8-3Zm0 2.18 6 2.25V11c0 3.91-2.52 7.74-6 8.92C8.52 18.74 6 14.91 6 11V6.43l6-2.25Z"/></svg>
-              </div>
-              <p>Faça uma cópia de segurança ou recupere os dados da sua equipe.</p>
-              <div class="data-actions">
-                <button class="button button-secondary" id="exportButton" type="button">
-                  <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2ZM19 9h-4V3H9v6H5l7 7 7-7Z"/></svg>
-                  Exportar JSON
-                </button>
-                <button class="button button-ghost" id="importButton" type="button">
-                  <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4v6Zm-4 2h14v2H5v-2Z"/></svg>
-                  Importar arquivo
-                </button>
-                <input id="importInput" type="file" accept=".json,application/json" hidden />
-              </div>
-            </section>
-          </div>
-
-          <section class="panel employees-panel section-anchor" id="funcionarios">
-            <div class="employees-heading">
-              <div>
-                <span class="section-kicker">Time G&A</span>
-                <h2>Funcionários</h2>
-                <p>Consulte e gerencie os colaboradores cadastrados.</p>
-              </div>
-              <label class="search-field">
-                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9.5 3a6.5 6.5 0 1 0 3.98 11.64L19.85 21 21 19.85l-6.36-6.37A6.5 6.5 0 0 0 9.5 3Zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Z"/></svg>
-                <span class="sr-only">Pesquisar funcionários</span>
-                <input id="searchInput" type="search" placeholder="Buscar por nome, CPF, cargo..." autocomplete="off" />
-              </label>
             </div>
 
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Funcionário</th>
-                    <th>Matrícula</th>
-                    <th>Cargo</th>
-                    <th>Setor</th>
-                    <th>Situação</th>
-                    <th class="actions-column">Ações</th>
-                  </tr>
-                </thead>
-                <tbody id="employeesTableBody"></tbody>
-              </table>
-              <div class="empty-state" id="emptyState">
-                <div class="empty-icon">
-                  <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3ZM8 11c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3Zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5C15 14.17 10.33 13 8 13Zm8 0c-.29 0-.62.02-.97.05 1.19.86 1.97 2.02 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5Z"/></svg>
-                </div>
-                <h3>Nenhum funcionário cadastrado</h3>
-                <p>Comece adicionando o primeiro integrante da sua equipe.</p>
-                <a class="button button-primary" href="./cadastro.html">Cadastrar funcionário</a>
-              </div>
+            <div class="filtros">
+                <label for="filtroTipo">Filtrar por tipo:</label>
+                <select id="filtroTipo">
+                    <option value="todos">Todos</option>
+                    <option value="Requisitos">Requisitos</option>
+                    <option value="Bloqueio">Bloqueio</option>
+                </select>
+
+                <label for="filtroStatus">Filtrar por status:</label>
+                <select id="filtroStatus">
+                    <option value="todos">Todos</option>
+                    <option value="PENDENTE">Pendente</option>
+                    <option value="PASSOU">Passou</option>
+                    <option value="FALHOU">Falhou</option>
+                </select>
             </div>
-            <div class="table-footer">
-              <span id="tableCount">0 funcionários</span>
+
+            <div class="tabela-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID do Caso de Teste</th>
+                            <th>Tipo de Teste</th>
+                            <th>Caso de Teste (CT)</th>
+                            <th>O que foi testado</th>
+                            <th>Como foi testado (entradas/valores de base)</th>
+                            <th>Resultado Esperado</th>
+                            <th>Resultado Obtido</th>
+                            <th>Status do Teste</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="corpoTabela">
+
+                        <tr data-tipo="Requisitos">
+                            <td>CT-01</td>
+                            <td><span class="tipo requisito">Requisitos</span></td>
+                            <td>Cadastro com sucesso</td>
+                            <td>Cadastro de funcionário com todos os dados válidos.</td>
+                            <td>Nome, CPF, endereço, e-mail, senha, cargo e demais campos válidos.</td>
+                            <td>O funcionário deve ser cadastrado corretamente.</td>
+                            <td><textarea class="resultado" placeholder="Descreva o resultado obtido..."></textarea></td>
+                            <td>
+                                <select class="status pendente">
+                                    <option value="PENDENTE">Pendente</option>
+                                    <option value="PASSOU">PASSOU</option>
+                                    <option value="FALHOU">FALHOU</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr data-tipo="Bloqueio">
+                            <td>CT-02</td>
+                            <td><span class="tipo bloqueio">Bloqueio</span></td>
+                            <td>Campo obrigatório vazio</td>
+                            <td>Tentativa de cadastro sem preencher um campo obrigatório.</td>
+                            <td>Deixar o campo Nome ou E-mail vazio e tentar cadastrar.</td>
+                            <td>O sistema deve impedir o cadastro e informar o campo obrigatório.</td>
+                            <td><textarea class="resultado" placeholder="Descreva o resultado obtido..."></textarea></td>
+                            <td>
+                                <select class="status pendente">
+                                    <option value="PENDENTE">Pendente</option>
+                                    <option value="PASSOU">PASSOU</option>
+                                    <option value="FALHOU">FALHOU</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr data-tipo="Bloqueio">
+                            <td>CT-03</td>
+                            <td><span class="tipo bloqueio">Bloqueio</span></td>
+                            <td>Formato de e-mail inválido</td>
+                            <td>Validação do formato do endereço de e-mail.</td>
+                            <td>Informar um e-mail inválido, como usuario@ ou usuario.com.</td>
+                            <td>O sistema deve rejeitar o e-mail inválido e solicitar a correção.</td>
+                            <td><textarea class="resultado" placeholder="Descreva o resultado obtido..."></textarea></td>
+                            <td>
+                                <select class="status pendente">
+                                    <option value="PENDENTE">Pendente</option>
+                                    <option value="PASSOU">PASSOU</option>
+                                    <option value="FALHOU">FALHOU</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr data-tipo="Bloqueio">
+                            <td>CT-04</td>
+                            <td><span class="tipo bloqueio">Bloqueio</span></td>
+                            <td>Seleção de múltiplos turnos</td>
+                            <td>Verificação da seleção de turnos no cadastro.</td>
+                            <td>Tentar selecionar mais de um turno, quando a regra permitir apenas um.</td>
+                            <td>O sistema deve impedir uma seleção incompatível com a regra definida.</td>
+                            <td><textarea class="resultado" placeholder="Descreva o resultado obtido..."></textarea></td>
+                            <td>
+                                <select class="status pendente">
+                                    <option value="PENDENTE">Pendente</option>
+                                    <option value="PASSOU">PASSOU</option>
+                                    <option value="FALHOU">FALHOU</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr data-tipo="Bloqueio">
+                            <td>CT-05</td>
+                            <td><span class="tipo bloqueio">Bloqueio</span></td>
+                            <td>Validação de salário negativo</td>
+                            <td>Validação do valor informado no campo salário.</td>
+                            <td>Informar um valor negativo, como -500.</td>
+                            <td>O sistema deve impedir o cadastro com salário negativo.</td>
+                            <td><textarea class="resultado" placeholder="Descreva o resultado obtido..."></textarea></td>
+                            <td>
+                                <select class="status pendente">
+                                    <option value="PENDENTE">Pendente</option>
+                                    <option value="PASSOU">PASSOU</option>
+                                    <option value="FALHOU">FALHOU</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr data-tipo="Requisitos">
+                            <td>CT-06</td>
+                            <td><span class="tipo requisito">Requisitos</span></td>
+                            <td>Opções de cargo</td>
+                            <td>Verificação das opções disponíveis no campo Cargo.</td>
+                            <td>Abrir a lista de cargos e verificar se existem pelo menos quatro opções.</td>
+                            <td>O campo deve apresentar pelo menos quatro opções de cargos.</td>
+                            <td><textarea class="resultado" placeholder="Descreva o resultado obtido..."></textarea></td>
+                            <td>
+                                <select class="status pendente">
+                                    <option value="PENDENTE">Pendente</option>
+                                    <option value="PASSOU">PASSOU</option>
+                                    <option value="FALHOU">FALHOU</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr data-tipo="Requisitos">
+                            <td>CT-07</td>
+                            <td><span class="tipo requisito">Requisitos</span></td>
+                            <td>Formatação do salário</td>
+                            <td>Verificação da apresentação do salário em reais.</td>
+                            <td>Informar um salário válido, como 2500.</td>
+                            <td>O valor deve ser apresentado no formato de moeda brasileira (R$).</td>
+                            <td><textarea class="resultado" placeholder="Descreva o resultado obtido..."></textarea></td>
+                            <td>
+                                <select class="status pendente">
+                                    <option value="PENDENTE">Pendente</option>
+                                    <option value="PASSOU">PASSOU</option>
+                                    <option value="FALHOU">FALHOU</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr data-tipo="Requisitos">
+                            <td>CT-08</td>
+                            <td><span class="tipo requisito">Requisitos</span></td>
+                            <td>Exibição da identidade visual</td>
+                            <td>Verificação da exibição da logo da G&A VISION.</td>
+                            <td>Acessar a página do sistema e observar o cabeçalho.</td>
+                            <td>A logo deve ser exibida corretamente, sem distorções ou falhas.</td>
+                            <td><textarea class="resultado" placeholder="Descreva o resultado obtido..."></textarea></td>
+                            <td>
+                                <select class="status pendente">
+                                    <option value="PENDENTE">Pendente</option>
+                                    <option value="PASSOU">PASSOU</option>
+                                    <option value="FALHOU">FALHOU</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
             </div>
-          </section>
-        </main>
+        </section>
 
-        <footer>
-          <span>© <span id="currentYear"></span> G&A VISION | Gestão Empresarial</span>
-          <span>Transformamos ideias em impacto.</span>
-        </footer>
-      </div>
-    </div>
+        <section class="observacao">
+            <h3>Orientações</h3>
+            <p>
+                Execute cada caso de teste no sistema de cadastro. Depois,
+                registre o resultado obtido e selecione PASSOU ou FALHOU.
+                Os indicadores serão atualizados automaticamente.
+            </p>
+        </section>
 
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    </main>
 
-    <aside class="ana-guide" id="anaGuide" aria-label="Caio, assistente virtual">
-      <div class="ana-panel" id="anaPanel" hidden>
-        <div class="ana-panel-header">
-          <div>
-            <span class="ana-online"></span>
-            <p><strong>Caio</strong><small>Guia da G&A VISION</small></p>
-          </div>
-          <button class="ana-close" id="anaClose" type="button" aria-label="Fechar orientação">
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m18.3 5.71-1.41-1.42L12 9.17 7.11 4.29 5.7 5.71 10.59 10.59 5.7 15.48l1.41 1.41L12 12l4.89 4.89 1.41-1.41-4.89-4.89 4.89-4.88Z"/></svg>
-          </button>
-        </div>
-        <div class="ana-panel-body">
-          <span class="ana-kicker">Como posso ajudar?</span>
-          <p id="anaMessage">Olá! Eu sou o Caio. Posso guiar você pelas principais áreas do sistema.</p>
-          <nav class="ana-shortcuts" aria-label="Atalhos sugeridos pelo Caio">
-            <a href="./cadastro.html">
-              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Z"/></svg>
-              Cadastrar funcionário
-            </a>
-            <a href="#funcionarios" data-ana-link>Consultar equipe</a>
-            <a href="#dados" data-ana-link>Importar ou exportar dados</a>
-          </nav>
-        </div>
-      </div>
-      <button class="ana-character" id="anaToggle" type="button" aria-label="Conversar com Caio" aria-expanded="false">
-        <span class="ana-speech" id="anaSpeech">Olá! Precisa de ajuda?</span>
-        <span class="ana-portrait">
-          <img src="caio.png" alt="Caio, guia virtual da G&A VISION" />
-        </span>
-      </button>
-    </aside>
+    <footer>
+        <p>G&A VISION — Sistema de Cadastro de Funcionários</p>
+        <p>Todos os direitos reservados.</p>
+        <p>Responsáveis: Guilherme e Ana Luiza</p>
+        <span id="dataAtual"></span>
+    </footer>
 
-    <div class="modal-backdrop" id="deleteModal" role="dialog" aria-modal="true" aria-labelledby="deleteTitle" hidden>
-      <div class="modal">
-        <div class="modal-icon">
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 21h10a2 2 0 0 0 2-2V7h-2v12H7V7H5v12a2 2 0 0 0 2 2Zm3-12h2v8h-2V9Zm4 0h2v8h-2V9Zm2.5-5-1-1h-7l-1 1H5v2h14V4h-2.5Z"/></svg>
-        </div>
-        <h2 id="deleteTitle">Excluir funcionário?</h2>
-        <p>Você está prestes a remover <strong id="deleteEmployeeName"></strong>. Esta ação não poderá ser desfeita.</p>
-        <div class="modal-actions">
-          <button class="button button-ghost" id="cancelDelete" type="button">Cancelar</button>
-          <button class="button button-danger" id="confirmDelete" type="button">Sim, excluir</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script type="module" src="./script.js"></script>
-  </body>
+</body>
 </html>

@@ -1,0 +1,431 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #111111;
+    color: #eeeeee;
+}
+
+.topo {
+    background: #1c1c1c;
+    border-bottom: 3px solid #ff7900;
+    padding: 25px 6%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo {
+    width: 100px;
+    height: 85px;
+    border: 2px solid #ff7900;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.logo span {
+    color: #ff7900;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.logo small {
+    color: white;
+    letter-spacing: 5px;
+    font-size: 12px;
+}
+
+.identificacao p {
+    color: #ff7900;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.identificacao h1 {
+    font-size: 29px;
+    margin-bottom: 5px;
+}
+
+.identificacao span {
+    color: #aaaaaa;
+    font-size: 14px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1500px;
+    margin: 35px auto;
+}
+
+.introducao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.introducao h2,
+.titulo-tabela h2 {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.introducao p,
+.titulo-tabela p {
+    color: #aaaaaa;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.botao-imprimir {
+    background: #ff7900;
+    color: #111111;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.botao-imprimir:hover {
+    background: #ff9638;
+    transform: translateY(-2px);
+}
+
+.resumo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 35px;
+}
+
+.card-resumo {
+    background: #202020;
+    padding: 22px;
+    border-radius: 10px;
+    border-left: 4px solid #ff7900;
+}
+
+.card-resumo span {
+    display: block;
+    color: #aaaaaa;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.card-resumo strong {
+    font-size: 32px;
+}
+
+.card-resumo.passou {
+    border-color: #28b463;
+}
+
+.card-resumo.falhou {
+    border-color: #e74c3c;
+}
+
+.card-resumo.percentual {
+    border-color: #ff7900;
+}
+
+.area-testes {
+    background: #1b1b1b;
+    border: 1px solid #333333;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.titulo-tabela {
+    margin-bottom: 20px;
+}
+
+.filtros {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.filtros label {
+    font-size: 13px;
+    color: #cccccc;
+}
+
+.filtros select {
+    background: #292929;
+    color: white;
+    border: 1px solid #444444;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.tabela-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 1500px;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #292929;
+}
+
+th {
+    color: #ff9638;
+    font-size: 12px;
+    text-align: left;
+    padding: 15px 12px;
+    border-bottom: 2px solid #ff7900;
+}
+
+td {
+    padding: 13px 12px;
+    border-bottom: 1px solid #333333;
+    font-size: 12px;
+    line-height: 1.5;
+    vertical-align: top;
+}
+
+tbody tr:hover {
+    background: #252525;
+}
+
+.tipo {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.requisito {
+    color: #80d8a5;
+    background: #173c2b;
+}
+
+.bloqueio {
+    color: #ff9990;
+    background: #492321;
+}
+
+.resultado {
+    width: 190px;
+    min-height: 65px;
+    resize: vertical;
+    padding: 9px;
+    background: #292929;
+    color: white;
+    border: 1px solid #444444;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+
+.resultado:focus {
+    outline: 1px solid #ff7900;
+}
+
+.status {
+    min-width: 115px;
+    padding: 9px;
+    border: 1px solid #555555;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.status.pendente {
+    color: #ffce80;
+    background: #493719;
+}
+
+.status.aprovado {
+    color: #80d8a5;
+    background: #173c2b;
+}
+
+.status.reprovado {
+    color: #ff9990;
+    background: #492321;
+}
+
+.observacao {
+    margin-top: 25px;
+    padding: 20px;
+    background: #202020;
+    border-left: 4px solid #ff7900;
+    border-radius: 7px;
+}
+
+.observacao h3 {
+    color: #ff9638;
+    margin-bottom: 10px;
+}
+
+.observacao p {
+    color: #bbbbbb;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+footer {
+    background: #1c1c1c;
+    border-top: 2px solid #ff7900;
+    padding: 25px;
+    text-align: center;
+    color: #aaaaaa;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+footer span {
+    color: #ff9638;
+}
+
+@media (max-width: 800px) {
+    .topo {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .logo {
+        width: 75px;
+        height: 70px;
+        flex-shrink: 0;
+    }
+
+    .logo span {
+        font-size: 23px;
+    }
+
+    .identificacao h1 {
+        font-size: 21px;
+    }
+
+    .identificacao p {
+        font-size: 9px;
+    }
+
+    .resumo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .introducao {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .area-testes {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 450px) {
+    .container {
+        width: 94%;
+    }
+
+    .resumo {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .card-resumo {
+        padding: 15px;
+    }
+
+    .card-resumo strong {
+        font-size: 25px;
+    }
+
+    .card-resumo span {
+        font-size: 11px;
+    }
+}
+
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+
+    .topo,
+    footer {
+        background: #eeeeee;
+        color: black;
+    }
+
+    .identificacao span,
+    .introducao p,
+    .titulo-tabela p,
+    .observacao p {
+        color: #333333;
+    }
+
+    .botao-imprimir,
+    .filtros {
+        display: none;
+    }
+
+    .container {
+        width: 100%;
+        margin: 15px auto;
+    }
+
+    .card-resumo,
+    .area-testes,
+    .observacao {
+        background: white;
+        color: black;
+        border: 1px solid #999999;
+    }
+
+    .card-resumo span {
+        color: #333333;
+    }
+
+    .tabela-container {
+        overflow: visible;
+    }
+
+    table {
+        min-width: 0;
+        font-size: 9px;
+    }
+
+    th,
+    td {
+        color: black;
+        padding: 5px;
+        font-size: 8px;
+    }
+
+    .resultado {
+        background: white;
+        color: black;
+        border: none;
+        width: 100%;
+    }
+
+    .status {
+        color: black !important;
+        background: white !important;
+    }
+}
